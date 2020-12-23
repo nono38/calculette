@@ -1,16 +1,24 @@
+let a = 0
+let cacapipicrotte = 0
 input.onButtonPressed(Button.A, function () {
-    cacapipicrotte = -1 + cacapipicrotte
-    basic.showNumber(cacapipicrotte)
+    a = a - 1
+    basic.showNumber(a)
 })
 input.onButtonPressed(Button.AB, function () {
-    basic.showNumber(3 * cacapipicrotte)
+    cacapipicrotte = randint(0, 10)
+    basic.showNumber(cacapipicrotte)
+    cacapipicrotte = 3 * cacapipicrotte
 })
 input.onButtonPressed(Button.B, function () {
-    cacapipicrotte = 1 + cacapipicrotte
-    basic.showNumber(cacapipicrotte)
+    a = 1 + a
+    basic.showNumber(a)
 })
-let cacapipicrotte = 0
-cacapipicrotte = 0
-basic.forever(function () {
-	
+input.onGesture(Gesture.ScreenUp, function () {
+    if (a == cacapipicrotte) {
+        basic.showIcon(IconNames.Yes)
+    } else {
+        basic.showIcon(IconNames.No)
+    }
+    cacapipicrotte = 0
+    a = 0
 })
